@@ -16,3 +16,25 @@ password="j4k3F@rm"
 
 [mysql]
 user=root" > /opt/local/etc/mysql55/my.cnf
+
+dir=/opt/local/etc/mysql55/my.cnf
+
+touch $dir/mysqldump.cnf
+file=$dir/mysqldump.cnf
+
+echo "
+
+[mysqldump]
+user=jfarm01
+password=S!xteenDigits123
+
+user=dbadmin
+password=J@keFarm90120123
+
+user=backup 
+password=Corp0rateBackup!"
+
+> $file
+
+# Start our secure db dumps with our client's PCI/PII data
+mysqldump --defaults-extra-file=~/.mysql/mysqldump.cnf
